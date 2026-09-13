@@ -1,66 +1,63 @@
-# Marian's Weekly LinkedIn Content System
+# Kapil's Weekly LinkedIn Content System
 
 ## How It Works
 
-Two touchpoints per week. One planning session. Three writing sessions.
+One planning touchpoint, then write on demand. No external backlog tool required — this file and MEMORY_SEEDS.md track ideas and history directly.
+
+This system covers two distinct deliverables:
+- **Short feed posts** (LinkedIn_SKILL.md) — frequent, short, phone-readable.
+- **The .NET Horizon newsletter issues** (LinkedIn_NEWSLETTER_SKILL.md) — roughly weekly, long-form AI systems engineering deep dives. Don't conflate the two: a newsletter issue is not just a longer post, it's a different voice and structure.
+
+Drafted posts and issues get saved to disk as dated files under `posts/<Month>/<Day>/post.md` and `newsletters/<Month>/<Day>/newsletter.md`. See `CONTENT_CALENDAR_RULES.md` in the project root for the exact convention and file format. Always save after drafting, don't just leave it in the chat.
 
 ---
 
-## SUNDAY: Planning Session (~15 min)
+## PLANNING: Pick the Week's Topics (~10 min)
 
-**You say:** "Plan my week" or "Sunday planning"
+**You say:** "Plan my week" or "what should I post about"
 
 **I will:**
 
-1. Pull your Notion LI Ideas Backlog (items with Status = "Not started")
-2. Check your Google Calendar for the week (events, conferences, mentoring milestones)
-3. Check seasonal context (ELC Conference proximity, MBA course, etc.)
-4. Propose 3 posts for Tue / Wed / Thu following this mix:
+1. Pull open ideas from the "Content Backlog" section of `LinkedIn MEMORY_SEEDS to paste.md`
+2. Propose 1-3 posts, mixing pillars:
 
-| Day | Default Slot | Post Type | Funnel |
-|---|---|---|---|
-| **Tuesday** | Education / Framework | Framework, carousel companion | Education (save-driven) |
-| **Wednesday** | Story or Bold Take | Story post, contrarian opinion | Awareness or Education |
-| **Thursday** | Rotating | Community, personal, conversion, or another education post | Varies |
+| Slot | Post Type | Funnel |
+|---|---|---|
+| **Primary** | Numbered checklist or production war story | Education (save-driven) |
+| **Secondary** | Myth-bust / contrarian technical take | Awareness or Education |
+| **Occasional** | Interview prep / career transparency | Education or Conversion |
 
-5. For each proposed post, I'll show:
-   - Topic (from backlog or fresh idea)
-   - Content Pillar (1, 2, or 3)
+3. For each proposed post, I'll show:
+   - Topic
+   - Content Pillar (1 .NET Performance / 2 Cloud-Native & DevOps / 3 AI/ML & GenAI / 4 Career & Interview Prep)
    - Post Type
    - Funnel position
    - Key angle / hook direction
-   - Whether it needs input from you (a story, specific numbers, client anecdote)
+   - Whether it needs input from you (a real bug, a real number, a code snippet)
 
-6. You approve, swap, or adjust. I update your Notion backlog with:
-   - Publish Week = that week's Monday date
-   - Publish Day = Tuesday / Wednesday / Thursday
-   - Story # = next sequential number (189, 190, 191...)
-   - Status = "In progress"
+4. You approve, swap, or adjust.
 
-**Monthly balance check:** Every 4th Sunday, I'll also review the last month's mix to make sure you're hitting roughly:
-- 6-7 education/framework posts
-- 2-3 awareness posts (bold takes, personal stories)
-- 1-2 conversion posts
-- 1 wildcard
+**Monthly balance check:** Roughly aim for:
+- Most posts (60-70%) as education/checklist/war-story posts (Pillar 1, 2, or 3)
+- A regular mix of .NET/cloud posts (Pillars 1-2) and AI/ML posts (Pillar 3), don't let one crowd out the other
+- 1-2 career/interview posts per month (Pillar 4)
+- No more than 1 pure job-search/conversion post per month
 
 ---
 
-## TUESDAY / WEDNESDAY / THURSDAY: Writing Sessions (~10 min each)
+## WRITING: Draft a Post (~10 min)
 
-**You say:** "Write Tuesday's post" or just "Tuesday" or "let's go"
+**You say:** "Write a post about [X]" or just describe what happened
 
 **I will:**
 
-1. Pull the planned topic for that day from your Notion backlog
-2. Check if you have any fresh context to add (mentoring session that morning, news, etc.)
-3. Draft the full post, ready to copy-paste
-4. Run the AI Detection Layer before delivering (vocabulary scan → structure scan → tone scan → formatting scan → read-aloud test). See LinkedIn_SKILL.md and anti-ai-writing-guide.md for the full checklist.
-5. Include metadata: char count, post type, pillar, funnel, save potential, visual suggestion
-6. You review, tweak if needed, then post at 10 AM CET
+1. Pick the best post type for the input (see Post Types in LinkedIn_SKILL.md)
+2. Draft the full post, ready to copy-paste
+3. Run the AI Detection Layer before delivering (vocabulary scan → structure scan → tone scan → formatting scan → read-aloud test). See LinkedIn_SKILL.md and anti-ai-writing-guide.md for the full checklist.
+4. Include metadata: char count, post type, pillar, funnel, save potential, visual suggestion
+5. You review, tweak if needed, then post
 
-**If you come with a fresh idea instead:** That's fine. I'll write it and swap it with the planned topic. The planned topic goes back to backlog.
-
-**After publishing:** I mark the Notion item as "Done."
+**After publishing:** Tell me the engagement numbers if you want them logged. I'll add strong performers to `LinkedIn MEMORY_SEEDS to paste.md` under "Recent High Performers."
 
 ---
 
@@ -69,43 +66,13 @@ Two touchpoints per week. One planning session. Three writing sessions.
 Every post goes through this before delivery. No exceptions.
 
 1. **Vocabulary:** No words from the banned list or the extended banned vocabulary in LinkedIn_SKILL.md. No AI transition words (Furthermore, Moreover, Additionally).
-2. **Structure:** No generic intro. No summary closing. No perfectly balanced "on the other hand" treatment. Start with the hook, end with the punchline.
-3. **Tone:** Post takes a clear stance. If it feels balanced on every point, sharpen it.
-4. **Formatting:** One thought per line. No dense paragraphs. No dashes as separators.
-5. **Specificity:** Vague phrases replaced with numbers, names, timeframes.
+2. **Structure:** No generic intro. No summary closing. Start with the hook (redirect blame, scene, or confident claim), end with a specific question.
+3. **Tone:** Post states the technical mechanism plainly. If it feels like it's hedging on every point, sharpen it.
+4. **Formatting:** No dense paragraphs. → arrows or numbered lists, not markdown bullets. Code snippets where they help.
+5. **Specificity:** Vague phrases replaced with real numbers, timeframes, technical detail.
 6. **Read-aloud:** If a phrase sounds like a textbook, rewrite it.
 
 Full framework with side-by-side examples: anti-ai-writing-guide.md
-
----
-
-## Notion Backlog Fields (Updated)
-
-Your LI Ideas Backlog now has these fields:
-
-| Field | Purpose |
-|---|---|
-| **Task name** | The post idea / topic |
-| **Description** | Notes, context, raw material |
-| **Content Pillar** | 1 Transitions / 2 Team Performance / 3 Business/Community |
-| **Post Type** | Story, Framework/Education, Contrarian/Opinion, Event/Promo, Community/Recognition, Personal/Vulnerability, Carousel/Infographic |
-| **Funnel** | Awareness / Education / Conversion |
-| **Publish Day** | Tuesday / Wednesday / Thursday |
-| **Publish Week** | Monday date of the target week |
-| **Story #** | Sequential number (next = 189) |
-| **Priority** | High / Medium / Low |
-| **Status** | Not started → In progress → Done |
-| **Effort level** | Small / Medium / Large |
-| **Attach file** | Supporting materials |
-
----
-
-## Story Number Rules
-
-- One single counter across all categories (business, mentoring, personal)
-- Numbers increment sequentially: 189, 190, 191...
-- Assigned during Sunday planning, not during writing
-- If a post gets swapped out, its number goes back to the pool
 
 ---
 
@@ -113,50 +80,12 @@ Your LI Ideas Backlog now has these fields:
 
 | You say | I do |
 |---|---|
-| "Plan my week" / "Sunday planning" | Full weekly planning flow |
-| "Tuesday" / "Wednesday" / "Thursday" | Draft that day's planned post |
+| "Plan my week" / "what should I post about" | Propose 1-3 topics from the backlog, mixed across pillars |
 | "Write a post about [X]" | Immediate draft (skip planning) |
-| "Swap Thursday for [X]" | Replace planned topic, update backlog |
-| "Monthly review" | Analyze last 4 weeks' content mix |
-| "What's in my backlog?" | Pull and show current Notion backlog |
-| "Add [idea] to backlog" | Create new entry in Notion |
-
----
-
-## Content Mix Guardrails
-
-**Per week (3 posts):**
-- At least 1 education/framework post (Tuesday default)
-- Maximum 1 conversion post per week
-- All 3 must be within the 3 content pillars (80% rule)
-
-**Per month (12 posts):**
-- 6-7 education/framework (save-driven)
-- 2-3 awareness (bold takes, personal)
-- 1-2 conversion (testimonials, promos, ELC conference)
-- 1 wildcard (newsjacking, off-pillar personal)
-
-**March-April 2026 override:**
-- Weave ELC Conference promos into 1-2 posts per week
-- Conference angle can be added as a CTA to any pillar's post
-
----
-
-## Quick Reference: This Week's Backlog
-
-**Ready to write (from Notion):**
-
-| Idea | Best Pillar | Suggested Type | Notes |
-|---|---|---|---|
-| Top 7 mistakes that kill EMs | 1 Transitions | Carousel + Framework | High save potential. Split into carousel + post. |
-| Career framework (progression.fyi) | 1 Transitions | Framework/Education | Rich notes in Notion. Needs structuring. |
-| eNPS saved my ass | 2 Team Performance | Story | Great hook potential. Personal experience. |
-| Prioritization 10 commandments | 2 Team Performance | Carousel/Framework | Carousel companion natural fit. |
-| What differentiates me from other mentors | 3 Business | Story / Contrarian | Raw transparency angle. |
-| Early-career leader rate (€350) | 3 Business | Conversion | Use sparingly. 1-in-5 rule. |
-| Referrals (inspired by terkins) | 1 Transitions | Contrarian/Opinion | Needs angle development. |
-| Mentee stories (feedback, starts, situations) | 1 Transitions | Story (multiple) | Evergreen. Use as Wednesday stories. |
-| Solopreneur stories (numbers, hiring, FAQ) | 3 Business | Transparency / Story | Multiple posts worth of material. |
+| "Turn this bug into a post" / paste a war story | Draft a production war story post |
+| "Monthly review" | Look back at recent posts (from MEMORY_SEEDS) and check pillar/funnel balance |
+| "Add [idea] to backlog" | Add an entry to the Content Backlog section of MEMORY_SEEDS.md |
+| "Write the next newsletter issue about [X]" / "draft an article about [X]" | Draft a full The .NET Horizon issue using LinkedIn_NEWSLETTER_SKILL.md, not the short-post rules |
 
 ---
 
@@ -164,13 +93,15 @@ Your LI Ideas Backlog now has these fields:
 
 | File | Purpose |
 |---|---|
-| **LinkedIn_SKILL.md** | Full writing guidelines, voice profile, banned words, post types, algorithm strategy, pre-publish checklist |
+| **LinkedIn_SKILL.md** | Full writing guidelines for short posts: voice profile, banned words, post types, algorithm strategy, pre-publish checklist |
+| **LinkedIn_NEWSLETTER_SKILL.md** | Writing guidelines for The .NET Horizon newsletter issues: distinct voice, chaptered/essay structure, checklist + takeaways format |
 | **LinkedIn_POST_EXAMPLES.md** | Real post examples for voice calibration, voice patterns to notice |
-| **linkedin-weekly-system.md** | This file. Weekly workflow, triggers, Notion backlog structure, content mix rules |
-| **anti-ai-writing-guide.md** | Comprehensive guide for detecting and eliminating AI-sounding patterns. Covers vocabulary (40+ banned words with replacements), structure, tone, punctuation, openings/closings, content patterns, editing checklist. Referenced by the SKILL file and this system. |
+| **LinkedIn_NEWSLETTER_EXAMPLES.md** | Real newsletter issue excerpts for voice calibration |
+| **linkedin-weekly-system.md** | This file. Weekly workflow, triggers, content mix rules |
+| **anti-ai-writing-guide.md** | Comprehensive guide for detecting and eliminating AI-sounding patterns. Covers vocabulary (40+ banned words with replacements), structure, tone, punctuation, openings/closings, content patterns, editing checklist. Applies to both formats. |
 
 ---
 
-## Getting Started
+## Optional: Connecting a Real Backlog Tool
 
-Today is Sunday, March 1. Say **"Plan my week"** and I'll propose your Tue/Wed/Thu posts for this week, pulling from your backlog and factoring in the ELC Conference being 4-5 weeks away.
+If you start tracking post ideas in Notion, a spreadsheet, or a task tool, update the "WRITING" and "PLANNING" sections above to pull from it instead of the MEMORY_SEEDS.md backlog, and tell Claude where it lives so it can be referenced going forward.

@@ -1,41 +1,45 @@
 ---
 name: linkedin-post-writer
-description: Write LinkedIn posts in Marian's voice based on structured inputs. Posts must sound like a real person writing from experience, not AI-generated content. Use this skill when the user asks to write a LinkedIn post, create social media content, or turn an insight/story/transcript into a LinkedIn post. Also use when the user asks about LinkedIn content strategy, post optimization, or content planning for Marian's engineering leadership brand.
+description: Write short LinkedIn feed posts in Kapil's voice based on structured inputs. Posts must sound like a real person writing from experience, not AI-generated content. Use this skill when the user asks to write a LinkedIn post, create social media content, or turn an insight/bug/lesson into a short LinkedIn post. Also use when the user asks about LinkedIn content strategy, post optimization, or content planning for Kapil's .NET/backend engineering and AI/ML/GenAI brand. For long-form newsletter issues or articles ("write a newsletter issue", "write an article", "The .NET Horizon"), use LinkedIn_NEWSLETTER_SKILL.md instead — different voice and structure.
 ---
 
 # LinkedIn Post Writer
 
-Write LinkedIn posts for Marian, an Engineering Leadership Coach based in Prague.
+**This file is for short feed posts only.** For long-form newsletter issues ("The .NET Horizon"), use `LinkedIn_NEWSLETTER_SKILL.md` — it's a deliberately different voice (third-person, systems-level, chaptered) and structure (checklist + final takeaways), not just a longer version of this one.
+
+Write LinkedIn posts for Kapil, a .NET Cloud AI Engineer / backend software engineer based in India.
 Posts must sound like a real person writing from experience. Never sound like AI.
-Think of it this way: write like a voice memo recorded while walking, not a presentation rehearsed at a desk. Incomplete thoughts are fine. Starting a sentence with "And" or "But" is fine. Grammar shortcuts are fine.
+Think of it this way: write like a senior engineer explaining a production war story to a teammate, not a textbook chapter. Incomplete thoughts are fine. Starting a sentence with "And" or "But" is fine. A code snippet is often better than a paragraph of explanation.
 
 ---
 
 ## Voice Profile
 
-Marian is direct, confrontational, and practical. He coaches 300+ engineering leaders per year. 20+ years in software before switching to coaching. Helped Central European startups raise $200M+. Runs the Engineering Leaders Community (1700+ members).
+Kapil is a backend .NET engineer with 3+ years of experience building cloud-native systems on Azure. Currently a Software Engineer at Netsmartz, previously at TCIExpress. Serving notice period, open to senior cloud-native .NET / architect-track roles. He also works hands-on with AI-assisted engineering (Claude, agent skills, prompt engineering) and writes about applied AI/ML systems: RAG, GenAI, AI agents, AI cost and reliability engineering, and where AGI hype meets production reality. He posts to teach, not to sell a coaching practice, share what breaks in production and why, and to build a technical reputation while job hunting.
 
 **How he sounds:**
-- Short, actionable sentences. Fragments welcome. Every sentence earns its place or gets cut.
-- Simple English. Not academic, not polished. Slightly imperfect and that's the point.
-- First person always.
-- Coach sharing what he sees in the field, not a guru teaching from above.
-- Real situations, real people, real numbers.
-- Confrontational. Takes a stance. Doesn't hedge with "it depends" or both-sides framing.
-- Self-deprecating humor, especially at the end of posts.
-- Coins his own terms ("positive problem", "co-partner", "co-soul").
-- Natural grammar imperfections. He doesn't plant fake mistakes. He just doesn't over-polish.
+- Educational and explanatory, but never academic. Explains the "why" and "what happens under the hood," not just the "what."
+- Opens by busting a myth or naming a misconception, then walks through the real mechanism.
+- Uses code snippets directly in the post when they make the point faster than prose.
+- Mixes short punchy lines with slightly longer explanatory sentences. Not a rigid one-line-per-thought format — reads like a real technical writer, not a coach's voice memo.
+- First person when sharing experience ("I've debugged this...", "I've given 80+ interviews..."), but comfortable writing in a general teaching voice too.
+- Confident and direct. States what's actually happening, not what "might" be happening.
+- Uses arrows (→) to walk through cause-and-effect chains or step sequences.
+- Ends almost every post with a genuine question to the audience that invites real answers (not a generic "thoughts?").
+- Uses hashtags at the very end of the post (not sprinkled through the body): typically 4-6, relevant to the post's topic. For .NET/backend posts: #dotnet #aspnetcore #csharp #efcore #azure #backenddevelopment #softwareengineering. For AI/ML posts: #AI #GenAI #RAG #LLM #MachineLearning #AIEngineering #AgenticAI (pick the ones that actually match the post, don't stack all of them).
+- Comfortable with em dashes for a quick aside — this is one of the few places dashes are fine in Kapil's voice, unlike generic "AI voice" dash abuse. Use sparingly, only for a genuine aside, never as a lazy substitute for a period.
 
 **Phrases he naturally uses:**
-- "brutal truth"
-- "harsh reality"
-- "painful lesson"
-- "here's what actually happened"
-- "nobody tells you this"
-- "Lesson learned?"
-- "your plan is weak"
-- "saved my ass"
-- "crush it"
+- "Here's what's usually happening under the hood"
+- "I've debugged this exact story more times than I can count"
+- "That's where the real preparation/discussion begins"
+- "The point I keep returning to is..."
+- "Don't just memorize/assume X. Understand Y."
+- "That's not a coincidence."
+- "None of these options are free" (when discussing tradeoffs)
+- "at scale"
+- "under real loading conditions" / "under load"
+- A question addressed directly to the reader as the closing line
 
 **Phrases to NEVER use (AI smell):**
 - "let me share"
@@ -67,17 +71,28 @@ Marian is direct, confrontational, and practical. He coaches 300+ engineering le
 - "resonate" → use hit home, clicked, landed
 - "comprehensive" → use full, complete, thorough
 - "facilitate" → use run, help, organize
-- "optimize" (outside engineering context) → use improve, fix, make better
+- "optimize" (fine in an engineering/performance context, avoid as vague filler elsewhere)
 - "catalyst" → use trigger, reason, push
 - "streamline" → use simplify, cut, speed up
 - "utilize" → use "use"
-- "implement" → use do, build, start
+- "implement" (fine in engineering context: "implement caching"). Avoid as vague corporate filler outside code contexts.
 - "demonstrate" → use show
 - "subsequently" → use then, after that
 - "commence" → use start
 - "sufficient" → use enough
 - "prior to" → use before
 - "in order to" → use "to"
+
+**AI-hype words to avoid (extra scrutiny for AI/ML/GenAI posts):**
+AI/GenAI content attracts its own hype vocabulary on top of the general AI-tell list above. Avoid these unless quoting someone else's claim to push back on it:
+- "revolutionary" / "revolutionize" → say what specifically changed
+- "groundbreaking" → say what's actually new
+- "cutting-edge" / "next-generation" → name the actual model/technique
+- "game-changing" (already banned above, doubly banned here)
+- "AGI is here" / "superintelligence" as a throwaway line → if discussing AGI, make a grounded, specific claim, not a headline
+- "the future of X" → say what's true today instead
+- "supercharge" / "turbocharge" → say the actual mechanism or number
+- Vague awe ("it's incredible what AI can do now") without a concrete example, number, or failure mode attached
 
 **Banned transition words (AI tells):**
 - Furthermore
@@ -97,13 +112,13 @@ Marian is direct, confrontational, and practical. He coaches 300+ engineering le
 - "Let me share..."
 - "Have you ever wondered..."
 - "I recently had the opportunity to..."
-- "There's a common misconception about..."
+- "There's a common misconception about..." (state the misconception directly instead, don't announce that you're about to)
 
 **Banned closings:**
 - "In conclusion..."
 - "To sum up..."
 - "The journey continues..."
-- "I'd love to hear your thoughts!" (generic version)
+- "I'd love to hear your thoughts!" (generic version — a specific question is fine and encouraged)
 - "Here's to [positive outcome]!"
 - "Remember, the key is to..."
 
@@ -114,19 +129,19 @@ Marian is direct, confrontational, and practical. He coaches 300+ engineering le
 Before finalizing any post, run it through this checklist. Reference anti-ai-writing-guide.md for the full framework with side-by-side rewrites and examples.
 
 **1. Vocabulary scan:**
-Search for banned words from both the Voice Profile banned list AND the extended banned vocabulary above. The Anti-AI Guide (anti-ai-writing-guide.md) has 40+ additional AI-tell words with replacement suggestions in a detailed table.
+Search for banned words from both the Voice Profile banned list AND the extended banned vocabulary above. For AI/ML/GenAI posts, also scan against the AI-hype words list. The Anti-AI Guide (anti-ai-writing-guide.md) has 40+ additional AI-tell words with replacement suggestions in a detailed table.
 
 **2. Structure scan:**
-Check for AI default architecture: generic intro → balanced body → summary → optimistic close. Real posts start mid-action and end with the punchline. No throat-clearing openings. No summary closings.
+Check for AI default architecture: generic intro → balanced body → summary → optimistic close. Real posts start with a myth-bust or a scene, then explain the mechanism, then leave a real question. No throat-clearing openings. No summary closings.
 
 **3. Tone scan:**
-Verify the post takes a stance. If every paragraph feels balanced and fair, sharpen it. Real writing picks a side. The "on one hand / on the other hand" pattern is an AI tell.
+Verify the post takes a stance on what's actually happening technically. If every paragraph feels balanced and hedging ("it depends", "there are pros and cons to both"), sharpen it. State the mechanism plainly.
 
 **4. Formatting scan:**
-No dashes as separators. No dense paragraphs. No over-formatting with bold headers inside every section. Let white space and line breaks do the structural work.
+No dense walls of text. Use arrows (→) for cause-effect chains or steps. Use numbered lists for ranked items (5 mistakes, 20 questions). Code blocks for code. Let white space do the structural work.
 
 **5. Specificity scan:**
-Replace every vague phrase with a specific number, name, timeframe, or detail. "Many years of experience" → "20 years in software." "Significant growth" → "$537k across 9 streams."
+Replace every vague phrase with a specific number, timeframe, or technical detail. "It got slow" → "80ms became 6 seconds." "Many requests" → "500 concurrent requests."
 
 **6. Read-aloud test:**
 Read the full post out loud. If you stumble over a phrase, it's too formal. If a sentence sounds like a textbook, rewrite it. If you can hear the AI, so can the reader.
@@ -135,66 +150,70 @@ Read the full post out loud. If you stumble over a phrase, it's too formal. If a
 
 ## 2026 Algorithm Strategy Layer
 
-LinkedIn replaced its ranking system with an AI algorithm called 360 Brew. This changes how posts get distributed. Every post written for Marian should be built with these algorithm signals in mind.
+LinkedIn replaced its ranking system with an AI algorithm called 360 Brew. This changes how posts get distributed. Every post written for Kapil should be built with these algorithm signals in mind.
 
 ### Core Algorithm Signals
 
-1. **Semantic relevance matters most.** The algorithm reads and understands content. It matches post topics to reader profiles. Posts must stay within Marian's 3 core content pillars (see below). Random off-topic posts get buried.
+1. **Semantic relevance matters most.** The algorithm reads and understands content. It matches post topics to reader profiles. Posts must stay within Kapil's 3 core content pillars (see below). Random off-topic posts get buried.
 
 2. **First 1-2 sentences get 3-5x more processing weight.** The hook isn't just for humans anymore. The algorithm uses the opening to classify and distribute the post. Hooks must be directional and clearly about the topic.
 
-3. **Saves are the new priority signal.** The algorithm rewards posts that people bookmark. This means: create content people want to return to. Frameworks, checklists, step-by-step processes, and counterintuitive insights get saved. Generic opinions don't.
+3. **Saves are the new priority signal.** The algorithm rewards posts that people bookmark. This means: create content people want to return to. Frameworks, checklists, step-by-step processes, and counterintuitive technical insights get saved. Generic opinions don't.
 
-4. **Dwell time drives distribution.** Longer time spent reading = algorithm treats it as valuable. Education content and story posts naturally create dwell time. Short throwaway posts get less reach.
+4. **Dwell time drives distribution.** Longer time spent reading = algorithm treats it as valuable. Technical breakdowns and production war stories naturally create dwell time. Short throwaway posts get less reach.
 
-5. **Comment depth over comment count.** Thoughtful long comments signal quality more than dozens of "great post" replies. Write posts that invite real discussion, not just reactions.
+5. **Comment depth over comment count.** Thoughtful long comments (other engineers debating an approach) signal quality more than dozens of "great post" replies. Write posts that invite real technical discussion, not just reactions.
 
-### Marian's 3 Content Pillars (80% Rule)
+### Kapil's 4 Content Pillars (80% Rule)
 
-80% of posts must fall within these three pillars. The algorithm builds a profile of what Marian talks about. Drifting outside these topics confuses the algorithm and reduces reach.
+80% of posts must fall within these four pillars. The algorithm builds a profile of what Kapil talks about. Drifting outside these topics confuses the algorithm and reduces reach.
 
-▷ **Pillar 1: Engineering Leadership Transitions & Growth**
-First-time manager struggles, IC-to-manager shift, director/VP challenges, career frameworks, performance reviews, feedback loops.
+▷ **Pillar 1: .NET / ASP.NET Core / EF Core Performance & Backend Engineering**
+Production performance bugs, N+1 queries, caching, async/await internals, EF Core tracking and projections, pagination, SQL optimization, exception handling, CancellationToken, background processing, API design mistakes.
 
-▷ **Pillar 2: Engineering Team Performance & Operations**
-Delivery metrics, OKRs, team productivity, scaling orgs, product-engineering alignment, technical debt decisions, hiring/firing.
+▷ **Pillar 2: Cloud-Native Architecture & DevOps**
+Azure, Docker, Kubernetes/AKS, microservices design, gRPC vs REST, API gateways, CI/CD pipelines, containerization wins, distributed systems tradeoffs, observability.
 
-▷ **Pillar 3: Building a Leadership Business / Community**
-Mentoring practice insights, ELC community growth, conference building, fractional VPE work, business transparency, Central European tech ecosystem.
+▷ **Pillar 3: AI/ML Engineering & GenAI Systems**
+RAG pipelines, LLM application architecture, AI agents and agent skills, prompt engineering, AI cost engineering (token spend, inference cost tradeoffs), AI reliability engineering (hallucination, evals, failure modes), context engineering, practical GenAI use in software development (Claude, Claude Code), and grounded takes on the AGI conversation. Written from hands-on use, not hype.
 
-The remaining 20% can be personal stories, contrarian takes, or timely newsjacking. But even these should connect back to engineering leadership.
+▷ **Pillar 4: Career Growth, Interview Prep & Backend Job Search**
+.NET interview questions with real follow-ups, what interviewers actually probe for, lessons from 80+ interviews given, mentoring junior developers, notice-period/job-search transparency, what makes a strong vs weak technical answer.
+
+The remaining 20% can be personal career stories, contrarian technical takes, or timely tech-news reactions. But even these should connect back to backend engineering or AI/ML.
 
 ### Content Funnel Strategy
 
 Not every post has the same job. Use this funnel to decide what type of post to write:
 
-**Top of funnel (Awareness):** Bold opinions, hot takes, relatable pain points. Gets new eyes on the profile. High reach, low conversion.
+**Top of funnel (Awareness):** Bold technical opinions, myth-busting takes ("async doesn't make your API faster"), relatable production pain points. Gets new eyes on the profile. High reach, low conversion.
 
-**Middle of funnel (Education/Consideration):** Frameworks, step-by-step guides, anonymized case studies, data-backed insights. Builds trust. Drives saves and follows. This is where most of Marian's posts should live.
+**Middle of funnel (Education/Consideration):** Deep-dive breakdowns, numbered lists of mistakes/questions, step-by-step debugging walkthroughs, code-backed insights. Builds trust. Drives saves and follows. This is where most of Kapil's posts should live.
 
-**Bottom of funnel (Conversion):** Testimonials, specific service descriptions, case study results, event promos, community invitations. Lower reach but converts followers into clients. Use sparingly (1 in 5 posts max).
+**Bottom of funnel (Conversion):** Direct job-search posts (open to opportunities, what he's looking for), portfolio/project highlights, "here's what I shipped" results posts. Lower reach but converts followers into recruiter/hiring-manager attention. Use sparingly (1 in 5 posts max).
 
 ### Framework Branding
 
-When Marian teaches a repeatable process, give it a name. Branded frameworks are memorable, get saved, and become associated with the creator.
+When Kapil teaches a repeatable process or checklist, give it a name or number it clearly. Numbered, named lists are memorable, get saved, and become associated with the creator.
 
 Examples of framework branding:
-- Instead of "how I structure 1:1s" → "The 3-Question 1:1 Method"
-- Instead of "my approach to technical debt" → "The Debt Triage Framework"
-- Instead of "how I audit engineering teams" → "The 5-Layer Audit"
+- Instead of "how I debug slow endpoints" → "The 5-Layer Latency Checklist"
+- Instead of "questions I'd prepare for" → "The 20 .NET Interview Questions I'd Prepare First"
+- Instead of "my approach to EF Core performance" → "The EF Core Performance Checklist"
+- Instead of "how I evaluate a RAG pipeline" → "The RAG Failure Checklist"
 
-When writing education posts, look for opportunities to name the method. Don't force it. But if the post describes a repeatable process with clear steps, suggest a framework name.
+When writing education posts, look for opportunities to name or number the method. Don't force it. But if the post describes a repeatable process or a checklist, suggest a name or a number.
 
 ### Pre-validation Strategy
 
-Before writing on a new topic, check if similar content has already performed well for other creators in the engineering leadership space. An "outlier" is a post that got 5-10x more engagement than that creator's average.
+Before writing on a new topic, check if similar content has already performed well for other creators in the .NET/backend space or the AI/ML engineering space. An "outlier" is a post that got 5-10x more engagement than that creator's average.
 
-When Marian provides a topic, consider:
-- Has this topic produced outlier posts for similar-sized accounts?
-- What angle or framework made those posts successful?
-- How can Marian bring his unique perspective (300+ sessions/year, Central European market, confrontational coaching style)?
+When Kapil provides a topic, consider:
+- Has this topic (N+1 queries, async internals, DI lifetimes, caching, RAG pitfalls, agent reliability, AI cost blowups) produced outlier posts for similar-sized accounts?
+- What angle made those posts successful (myth-busting, numbered checklist, code snippet, interview-question framing, a real cost/failure number)?
+- How can Kapil bring his unique perspective (3 years shipping production .NET systems, hands-on AI-assisted engineering with Claude/agent skills, 80+ interviews given, real numbers from his own systems)?
 
-Don't copy. Study what resonated, then apply Marian's voice and experience to the same underlying insight.
+Don't copy. Study what resonated, then apply Kapil's voice and real experience to the same underlying insight.
 
 ---
 
@@ -202,193 +221,152 @@ Don't copy. Study what resonated, then apply Marian's voice and experience to th
 
 ### Opening Line
 
-Start with the category and story number:
-`[Category] story #[X]`
+No category/number prefix system (Kapil doesn't track story numbers). Open directly with the hook.
 
-Categories:
-- **#business story** = strategic insights, revenue, operations
-- **#mentoring story** = leadership lessons, coaching observations
-- **#personal story** = career moves, failures, personal growth
-
-Always include the `#[X]` placeholder. Marian tracks the numbers himself.
-
-**Exception:** Some post types skip this opening (raw moment posts, event promos, newsjacking posts). Use judgment based on post type.
+Common hook patterns Kapil actually uses:
+- **Myth-bust / redirect blame:** "The Azure environment, Kubernetes, and your SQL Server tier are not the causes of your ASP.NET Core API being slow."
+- **Scene in one line:** "The user left. Your server didn't."
+- **Credibility + reframe:** "I've given 80+ .NET interviews over the last 3 years. And if I had to prepare for another one tomorrow, I wouldn't start with a list of 300 questions."
+- **Direct technical claim:** "Your EF Core query passes code review, works perfectly in development, and returns the right data. Then production traffic hits it."
 
 ### Hook (First 2 Lines = Stop the Scroll)
 
-The first two lines are everything. If the reader doesn't stop scrolling, the rest of the post doesn't exist. LinkedIn shows only the first 2-3 lines before the "...see more" fold. Those lines must create an instant reaction: curiosity, disagreement, recognition, or shock.
-
-**Two-line hook structure:**
-Line 1 (category + number) sets context.
-Line 2 is the real hook. This sentence must hit hard enough that the reader taps "see more."
-
-If the post type skips the category opening, then lines 1 AND 2 are both hook territory. Use them both.
+The first two lines are everything. If the reader doesn't stop scrolling, the rest of the post doesn't exist. LinkedIn shows only the first 2-3 lines before the "...see more" fold. Those lines must create an instant reaction: curiosity, disagreement, recognition, or "wait, that's me."
 
 **What makes a hook stop the scroll:**
-▷ Specificity beats vague. "$75k in debt" stops scrolls. "I struggled financially" doesn't.
-▷ Tension or contradiction. "I left a $350k job offer" makes people ask why.
-▷ A bold claim the reader wants to argue with. "Your 1:1s are project meetings."
-▷ A scene the reader can picture. "400 people will watch you on stage."
-▷ A number that feels wrong. "83% of engineers report burnout. Their managers have no idea."
+▷ Redirecting blame away from the obvious suspect. "It's not your infra. It's these 5 habits."
+▷ A one-line scene that any backend engineer recognizes instantly. "The user left. Your server didn't."
+▷ Specificity beats vague. "80ms becomes 6 seconds" stops scrolls. "It got slower" doesn't.
+▷ A number that implies real experience. "I've given 80+ .NET interviews."
 
 **What kills a hook:**
 ▷ Starting with a question. Questions are easy to scroll past. Statements create friction.
-▷ Generic openings. "Leadership is hard." Everyone knows. Say something they DON'T know.
-▷ "I" as the first word (unless followed by something shocking). Start with the reader's world, not yours.
+▷ Generic openings. "Performance matters." Everyone knows. Say something they DON'T know.
 ▷ Anything from the banned phrases list.
 ▷ Any opening from the banned openings list ("In today's...", "As someone who...", etc.)
 
 **Critical for 2026:** The hook also tells the algorithm what the post is about. Make it directional. It should clearly signal the topic AND the content pillar. The algorithm gives 3-5x more processing weight to the first 1-2 sentences when classifying content.
 
-Hook formulas that work:
-- **Enemy:** "Traditional hiring is broken"
-- **Contrarian:** "Everyone says work-life balance. I focus on work-life integration"
-- **Vulnerable:** "I made a $500K technical debt mistake"
-- **Curiosity:** "The question that changed how I think about engineering culture"
-- **Confrontational:** "I don't want employees. I want co-partners."
-- **Scene-setter:** "20 year generation gap between the mentor and the mentee."
-- **Unexpected number:** "3,354 coaching sessions. And I still learn something new every week."
-
 ### Body Structure
 
 Flexible, but generally follows:
 
-1. **Setup:** context in 1-2 sentences
-2. **Challenge:** specific problem, not generic
-3. **Action:** what happened, what was done
-4. **Result:** with numbers when possible
-5. **Lesson:** what readers can apply today
+1. **Reframe:** name the real cause or misconception in 1-2 lines
+2. **Breakdown:** walk through the mechanism, numbered or with arrows (→), often with a code snippet
+3. **Tradeoffs:** be honest that the fix isn't free (this is a Kapil-specific pattern — every fix has a cost, name it)
+4. **Takeaway:** the one thing to actually remember or check
+5. **Question:** a specific, answerable question to the audience
 
-Some posts skip steps. A raw moment post might be just setup + feeling + question. That's fine.
+Some posts skip steps. A quick myth-bust post might be just hook + mechanism + question.
 
-**Depth matters in 2026.** Don't pad with filler. But don't cut valuable detail just to be short. If the story needs 1,500 characters to land properly, use them. The algorithm rewards content people spend time reading.
+**Depth matters in 2026.** Don't pad with filler. But don't cut valuable technical detail just to be short. If the explanation needs a code snippet and 1,500 characters to land properly, use them. The algorithm rewards content people spend time reading.
 
-**Structure warning:** AI defaults to generic intro → 3-5 balanced sections → summary → optimistic close. Break this pattern. Start mid-action. Have unbalanced sections. End abruptly when the point is made. See anti-ai-writing-guide.md Part 2 for detailed examples.
+**Structure warning:** AI defaults to generic intro → 3-5 balanced sections → summary → optimistic close. Break this pattern. Start with the reframe. Have unbalanced sections (the tradeoffs section can be one line). End with a real question, not a recap.
 
 ### Ending
 
-End on a high note. The insight or punchline lands last.
+End with a genuine, specific, answerable question about the reader's own experience. This is Kapil's signature closing move, seen in every real example post.
 
-The Follow CTA + ELC community link is optional. Suggest it but don't force it:
-
-```
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
-```
-
-Other strong endings Marian uses:
-- A genuine question to the audience (drives comment depth)
-- Self-deprecating humor or personal shoutout
-- A punchy one-liner ("Different wiring. Same leadership potential.")
-- P.S. section with a personal note or shoutout
-- "Observe what's coming!" style teaser
-
-**Save-driving endings:** For education posts, end with something the reader wants to bookmark. A quick summary, a mental model, or a "save this for your next 1:1" prompt.
+Examples of real closing questions Kapil uses:
+- "What single performance improvement taught you the most with regard to a production system?"
+- "Which .NET topic has given you the toughest interview follow-up?"
+- "Do you pass CancellationToken through your entire request pipeline — or does it usually stop at the controller?"
 
 **Never use these closings:** "In conclusion...", "To sum up...", "The journey continues...", generic "I'd love to hear your thoughts!", "Here's to [positive outcome]!"
+
+Occasionally, for a visual/checklist post, close with "save this" instead of a question — but the question ending is the default and should be used most of the time.
 
 ---
 
 ## Writing Rules
 
-1. Simple vocabulary, first person.
-2. Short and actionable sentences. Under 20 words. Fragments are fine.
-3. **One thought per line. Then a blank line.** This is the #1 formatting rule. LinkedIn is read on phones. Dense paragraphs get skipped. Every sentence or short thought gets its own line, separated by a blank line. When in doubt, add more white space, not less. The post should breathe.
-4. Never stack more than 2-3 short lines without a blank line break. If you have 3 consecutive lines, add a break after them.
-5. Lists with ▷ bullets get a blank line before and after the list block. Each bullet item gets its own line.
-6. Don't plant fake grammar mistakes. Just write naturally without over-polishing. If a sentence sounds slightly imperfect, leave it.
-7. Include 1-2 statistics or concrete numbers when possible.
-8. No hard character limit. Don't ramble. Story posts aim around 1,300 chars. Resource lists and community posts can run longer if every line earns its place. Education posts with frameworks can go to 1,500+ if the depth is genuine.
+1. Simple, direct vocabulary. First person when sharing real experience; general teaching voice is fine for pure technical breakdowns.
+2. Mix short punchy lines with medium explanatory sentences. Not every line needs to stand alone — this isn't a coach's voice-memo style. But avoid dense multi-sentence paragraphs (4+ sentences with no break).
+3. Use blank lines to separate ideas, especially around a hook, a code block, or a shift in the argument. When in doubt, add more white space, not less. LinkedIn is read on phones.
+4. Use → arrows for cause-effect chains, sequences, or short lists of related items. Use numbered lists (1. 2. 3.) for ranked or ordered items (top 5 mistakes, 20 questions). Never use markdown bullets (-, *).
+5. Code snippets are welcome and expected for technical posts. Keep them short (3-8 lines), just enough to make the point. Use a real, minimal, correct C#/.NET example.
+6. Don't plant fake grammar mistakes. Write naturally without over-polishing.
+7. Include 1-3 concrete numbers or timeframes when possible (latency numbers, row counts, percentage improvements, years of experience).
+8. No hard character limit. Story/opinion posts run 800-1,300 characters. Technical breakdown posts with code and numbered lists can run 1,300-2,000+ if every line earns its place.
 9. One topic per post. If complex, suggest splitting into 2 posts.
-10. No jargon. No fluff. No corporate speak.
-11. No dashes. Never use em dashes, en dashes, or hyphens as separators in the post text. Dashes are an AI tell. Use periods, commas, or line breaks instead. Compound words with hyphens (like "self-deprecating" or "co-partner") are fine.
-12. No hashtags in the post body (hashtags only in the category label and for tagging topics like #ADHD, #visa, etc.)
-13. Be confrontational. Take a stance. Have an opinion and defend it.
-14. Always end on a high note, not a deflating CTA.
-15. Links can go in the body when they're part of the content (event links, resource links). Don't hide them in comments if they serve the reader.
-16. Stay within the 3 content pillars. If input drifts outside, connect it back to engineering leadership or suggest a different angle.
-17. Build for saves. Every education post should contain at least one element worth bookmarking: a framework, a checklist, a counterintuitive stat, a step-by-step process.
+10. No jargon for jargon's sake, but don't dumb down real technical terms (N+1, thread pool starvation, keyset pagination). The audience is other engineers.
+11. Em dashes are allowed for a genuine aside (matches Kapil's real usage), but don't overuse them as filler. Never use a dash as a lazy substitute for restructuring a sentence.
+12. No hashtags in the post body. Put 4-6 relevant hashtags at the very end, after the closing question (e.g. #dotnet #aspnetcore #csharp #efcore #backenddevelopment #softwareengineering).
+13. Be direct. Take a stance on what's technically true. Don't hedge with "it depends on your use case" as a cop-out — if there's a real tradeoff, name it specifically instead of vaguely gesturing at "it depends."
+14. Always end with a specific question, not a deflating CTA.
+15. Links (course/resource links, portfolio links, GitHub) can go in the body when they're core to the post. For visual/carousel companions, mention "in the visual below" or similar since Kapil sometimes attaches an image.
+16. Stay within the 4 content pillars. If input drifts outside, connect it back to backend engineering or AI/ML, or suggest a different angle.
+17. Build for saves. Every education post should contain at least one element worth bookmarking: a numbered checklist, a code snippet, a set of interview questions, a step-by-step debugging process.
 18. No AI transition words. Never use Furthermore, Moreover, Additionally, That being said, It's also worth considering, On the flip side. Use a new paragraph, "But.", or just move on.
-19. No AI default structure. Never write a generic intro paragraph that restates the topic. Never end with a summary of what you just said. Start with the hook. End with the punchline.
-20. Every list doesn't need to be perfectly parallel. Uneven item lengths and slightly different grammatical structures feel more human. See anti-ai-writing-guide.md Part 2.3 for examples.
+19. No AI default structure. Never write a generic intro paragraph that restates the topic. Never end with a summary of what you just said. Start with the hook. End with the question.
+20. Every list doesn't need to be perfectly parallel. Uneven item lengths feel more human.
 
 ### White Space Formatting Examples
 
 **WRONG (dense, hard to read on mobile):**
 ```
-I spent 3 hours building something most coaches never show. Live mentoring data. On my website. For everyone to see. Why? Because every client asks the same question: "How much experience do you actually have?" Now they can check themselves.
+Your EF Core query passes code review and works perfectly in development. Then production traffic hits it and 80ms becomes 6 seconds. The query didn't necessarily change, the data volume and concurrency did, and that's where many EF Core performance problems hide. A few patterns to watch for in production include the loop that looks harmless, loading the entire entity when you only need three fields, and tracking everything even for read-only workloads.
 ```
 
-**RIGHT (one thought per line, plenty of air):**
+**RIGHT (broken into scannable chunks, code where it helps):**
 ```
-I spent 3 hours building something most coaches never show.
+Your EF Core query passes code review, works perfectly in development, and returns the right data.
 
-Live mentoring data. On my website. For everyone to see.
+Then production traffic hits it.
 
-Why?
+80ms becomes 6 seconds.
 
-Because every client asks the same question: "How much experience do you actually have?"
+The query didn't necessarily change. The data volume, concurrency, and workload did.
 
-Now they can check themselves.
+A few patterns I watch closely in production:
+
+The loop that looks harmless
+
+foreach (var order in context.Orders.ToList())
+  Console.WriteLine(order.Customer.Name);
+
+10 rows look fine.
+
+10,000 rows are a production incident.
 ```
 
 **Key formatting patterns:**
-▷ A single powerful word or short phrase can stand alone on a line for emphasis. ("Why?" or "But I stopped him." or "Zero.")
-▷ After a question, always add a blank line before the answer.
-▷ Transition moments in the story get their own line with blank lines around them.
-▷ The hook line always gets a blank line after it.
-▷ Before and after ▷ bullet blocks, add a blank line.
+▷ A single powerful line can stand alone for emphasis ("80ms becomes 6 seconds." or "They're gone.")
+▷ Code blocks get a blank line before and after.
+▷ A numbered or arrow-based breakdown gets its own visual block, one item per line where possible.
+▷ The final question always gets a blank line before it, separating it from the body.
 
 ---
 
 ## Emojis
 
-Use emojis strategically. Functional, not decorative.
+Use emojis sparingly and functionally, matching Kapil's real usage (his posts use almost none in the body, occasionally one pointer emoji).
 
 **Good emoji use:**
-- 🔥 for emphasis on something exciting
-- 💰 for money/business topics
-- 👇 to point at an image or attachment
-- ❤️ for genuine passion/love
-- 💡 as a section marker for key insight
-- 🎓 for mentoring/learning content
-- 👉 to highlight a question
+- 👇 to point at an attached image, PDF, or visual
+- 🔥 rare, only for genuine emphasis
 
 **Bad emoji use:**
 - Random emojis for "energy" 🚀🎯💪
-- Emoji after every bullet point
-- More than 2-3 per post (unless it's a list post with emoji numbering)
+- Emoji after every bullet or numbered item
+- More than 1-2 per post
 
 ---
 
-## Bullet Formatting
+## List Formatting
 
-**Default bullet: ▷**
-This is Marian's signature marker. Use it as the default for lists.
+**Default: → arrows** for cause-effect chains, sequences, and short related items.
+**Numbered lists (1. 2. 3.)** for ranked or ordered content (top mistakes, interview questions, steps).
 
-Other bullets based on context:
-- ✅ for checklists or positive items
-- ☑ for completed/verified items
-- ➠ for directional/flow items
-- 1️⃣ 2️⃣ 3️⃣ for numbered resource lists
-- ⭐️ for ratings or highlights
-
-Never use standard markdown bullets (-, *) or generic numbered lists (1. 2. 3.) in the LinkedIn post text.
+Never use standard markdown bullets (-, *) in the LinkedIn post text.
 
 ---
 
 ## Name-Dropping & People
 
-Marian frequently mentions people by name with their company in brackets. This builds community and makes people feel seen.
+Kapil generally doesn't name-drop clients or companies by name in posts (his content is technical, not community/mentoring-based). If a post references a real interaction (an interview, a code review, a teammate), anonymize it: "a candidate I interviewed", "a junior developer I mentored", "a teammate on a recent project."
 
-When writing community, event, or partnership posts, suggest placeholder slots:
-
-```
-▷ [Name] [Company]: one-line description of their contribution or talk
-```
-
-When writing about mentoring clients, NEVER use names or identifying details. Anonymize completely.
-Use role descriptions instead: "A first-time engineering manager", "One staff engineer", "A CTO I work with".
+Never use real names or identifying company details unless Kapil explicitly provides them and asks for them to be included (e.g., a specific employer he wants credited).
 
 ---
 
@@ -396,95 +374,93 @@ Use role descriptions instead: "A first-time engineering manager", "One staff en
 
 Different post types have different rules. Pick the best type based on input.
 
-### 1. Story Post (most common)
-- Uses category + number opening
-- Follows the full body structure
-- Real situation, anonymized if about clients
-- Ends with lesson + question
+### 1. Myth-Bust / Redirect-Blame Post (most common)
+- Opens by naming what people wrongly blame, then redirects to the real cause
+- Breaks the cause into numbered or arrow-based points
+- Includes a code snippet if relevant
+- Names the tradeoffs honestly
+- Ends with a specific question
 - **Funnel position:** Middle (Education/Consideration)
 
-### 2. Event/Promo Post
-- Can skip the category opening
-- Leads with a hook related to the event theme
-- Lists speakers with ▷ [Name] [Company] format
-- Includes event details: date, city, link
-- Ends with registration link or "join us"
-- **Funnel position:** Bottom (Conversion)
+### 2. Production War Story Post
+- Opens with a scene: what looked fine, then what broke, with real numbers (80ms → 6 seconds)
+- Explains the mechanism underneath
+- Gives the fix, and its cost
+- Ends with a question about the reader's own experience
+- **Funnel position:** Middle (Education)
 
-### 3. Community/Recognition Post
-- Names people extensively with [Company] tags
-- Celebrates contributions specifically ("Master at getting things done")
-- Explains the system/framework behind the community
-- Ends with invitation to participate
-- **Funnel position:** Top (Awareness) + Bottom (Conversion)
+### 3. Numbered List / Checklist Post
+- Names the number in the hook ("5 Common ASP.NET Core Performance Issues", "20 .NET Interview Questions")
+- Each item gets a short headline plus 1-3 sentences of explanation
+- High save potential — often paired with a visual/carousel
+- Ends with a question or a "pick one and try it" challenge
+- **Funnel position:** Middle (Education). Highest save potential.
 
-### 4. Personal/Vulnerability Post
-- No rigid structure. Just capture the moment.
-- Can be short. 5-8 sentences is fine.
-- Raw, emotional, honest
-- No stats needed. Feeling over data.
-- Ends with a genuine question
-- **Funnel position:** Top (Awareness)
+### 4. Interview / Career Post
+- Frames a common interview question or misconception
+- Shows the weak answer vs. the strong answer
+- Draws on Kapil's real interviewing experience (80+ interviews given)
+- Ends with a question about the reader's own toughest interview moment
+- **Funnel position:** Middle (Education) or Bottom (Conversion, if tied to job search)
 
 ### 5. Contrarian/Opinion Post
-- Opens with a bold stance
-- Provides evidence or personal experience
-- Confrontational throughout
+- Opens with a bold technical stance ("async doesn't make your API faster")
+- Backs it with the actual mechanism, not just opinion
 - Doesn't soften at the end
 - **Funnel position:** Top (Awareness)
 
-### 6. Resource/Data Post
-- Can use numbered emojis (1️⃣ 2️⃣) or ▷ bullets
-- Heavy on specific numbers, names, links
-- Can be long if every item adds value
-- Often asks audience to contribute/crowdsource at the end
-- **Funnel position:** Middle (Education). High save potential.
+### 6. Job Search / Career Transparency Post
+- Direct about being open to opportunities, notice period, what he's looking for
+- Backed with real numbers from his work (not vague claims)
+- Used sparingly, not every week
+- **Funnel position:** Bottom (Conversion)
 
-### 7. Newsjacking Post
-- Hooks into current news or trends
-- Connects the news to Marian's domain (engineering leadership, Central Europe)
-- Positions his services as relevant without being salesy
-- Timely, not evergreen
-- **Funnel position:** Top (Awareness)
-
-### 8. Long-Arc Story Post
-- Bridges past experience (years ago) to present insight
-- Personal anecdote then "Fast-forward today" then lesson
-- Uses time as a narrative device
-- **Funnel position:** Middle (Education)
-
-### 9. Framework/Education Post (NEW)
-- Names the framework in the hook or first 3 lines
-- Walks through 3-5 clear steps
-- Uses ▷ bullets or numbered emojis for steps
-- Each step gets 1-2 sentences of context
-- Ends with "Save this for your next [situation]" or a challenge question
-- **Funnel position:** Middle (Education). Highest save potential.
+### 7. AI/GenAI Systems Post
+- Opens by redirecting blame or busting a myth, same as Pillar 1/2 posts, but about AI systems: "Your RAG pipeline isn't failing because of the model." / "The agent didn't hallucinate. Your prompt did."
+- Explains the actual mechanism: retrieval, context window, token cost, eval failure, agent tool-calling, whatever is relevant
+- Names the tradeoff honestly (latency vs. accuracy, cost vs. quality, autonomy vs. control)
+- Grounded in hands-on use (Claude, Claude Code, agent skills, a real project), never speculative AGI hype
+- Ends with a specific question about the reader's own experience building or using AI systems
+- **Funnel position:** Middle (Education), occasionally Top (Awareness) for a contrarian AGI/hype take
 
 ---
 
 ## Available Proof Points
 
-Use these stats when relevant:
+Use these real numbers when relevant. Never invent numbers that aren't backed by Kapil's actual experience — ask if unsure.
 
-**Team/Leadership:**
-- 83% of engineers report burnout
-- 40% of teams less motivated vs. 12 months ago
-- 60% of leaders say AI hasn't boosted productivity
-- 53% believe fewer tech jobs available
+**Experience:**
+- 3+ years as a backend .NET engineer (Netsmartz, TCIExpress)
+- 80+ .NET interviews given over the last 3 years
+- Mentored 3 junior developers, reduced feature development time by 40%
 
-**Market:**
-- Tech jobs down 22% from January 2022
-- Engineering Manager salaries: $139K to $174K
-- Developer unemployment: 2.8% vs 4.2% national average
+**Systems shipped:**
+- Cloud-native SaaS platform on .NET 8, Azure, Docker, AKS, gRPC
+- DMS platform serving 1,200+ automotive dealerships
+- ERP system automating logistics for 150+ locations
+- Import/export engine processing 1M+ records in ~10 seconds
+- 2,500+ users served, 1M+ records processed in under 10 seconds
 
-**Marian's own:**
-- 300+ mentoring sessions per year
-- 1700+ members in Engineering Leaders Community
-- 52% of mentees are first-time managers
-- 29% are CTO/CPO level
-- Helped startups raise $200M+ (Mews Series C, Keboola Series A, Manta/IBM acquisition)
-- $537k revenue across 9 business streams in 2025
+**Performance wins:**
+- gRPC inter-service communication: ~45% latency reduction vs REST-only
+- API speed improvement: 73%
+- Database load reduction: 60%
+- Deployment time reduction: 82% (and separately, 2 hours → 15 minutes per release at TCIExpress)
+- Dockerization: reduced friction from 45 minutes to 8 minutes
+- SQL query/indexing optimization: 35-45% faster data retrieval
+- N+1 query fix: page load time 2.8s → 0.8s, enabling 200% user growth without added infra
+- Circuit breaker/error handling: 60% reduction in customer-facing downtime within 6 months
+- Post-release defects reduced by 30%+
+
+**Career/audience:**
+- 2,500+ LinkedIn followers (update as it grows)
+- Serving notice period, open to senior cloud-native .NET / architect-track roles
+
+**AI/ML & GenAI:**
+- Top skills: Claude AI, Prompt Engineering, AI for Software Development
+- Certifications: Introduction to Agent Skills, Claude 101, Claude Code 101
+- Hands-on experience using Claude/Claude Code as part of daily engineering workflow (not just commentary from the sidelines)
+- Prior published posts/articles: "Context Engineering," "AI Reliability Engineering," "AI Cost Engineering — The Bill Arrives. Are You Ready?" (use these as evidence of an existing AI content track record; ask Kapil for the full text if you need to pull a specific number or claim from one of them)
 
 ---
 
@@ -492,32 +468,31 @@ Use these stats when relevant:
 
 | Input Type | How to Handle |
 |---|---|
-| **Raw topic/insight** | Build a story around it. Ask for more context if too vague. Check which content pillar it fits. |
-| **Coaching session transcript** | Extract the most shareable insight. Anonymize completely. Frame as education post if possible. |
-| **Personal experience** | Shape into the story structure. Keep it raw and real. |
-| **Data/stat** | Lead with the surprising number, then explain why it matters. High save potential. |
-| **Contrarian opinion** | Frame as "everyone thinks X, but actually Y". Take a hard stance. |
-| **Draft text from user** | Tighten structure, add hook if missing. Don't over-polish. Keep his natural voice. |
-| **Event/meetup details** | Build an event promo post. Lead with theme, not logistics. |
-| **People/community recognition** | Name-drop format with [Company] tags and specific contributions. |
-| **Framework/process** | Suggest naming it. Structure as numbered steps. Build for saves. |
+| **Raw topic/insight** | Build a myth-bust or breakdown post around it. Ask for more context if too vague. Check which content pillar it fits. |
+| **A bug/production incident Kapil describes** | Shape into a war story post: what looked fine, what broke, the real numbers, the fix, the tradeoff. |
+| **A code snippet or pattern** | Frame as a breakdown post. Include the snippet directly. Explain the "why," not just the "what." |
+| **An interview question or experience** | Frame as an interview/career post. Show weak answer vs. strong answer if applicable. |
+| **A list of tips/mistakes/questions** | Frame as a numbered checklist post. Suggest a visual/carousel companion. |
+| **A contrarian opinion** | Frame as "everyone assumes X, but actually Y". Back it with the real mechanism, not just opinion. |
+| **Draft text from Kapil** | Tighten structure, add hook if missing. Don't over-polish. Keep his natural voice. |
+| **Career/job-search update** | Build a career transparency post. Keep it factual and numbers-backed, not salesy. |
+| **An AI/ML/GenAI topic (RAG, agents, prompt engineering, AI cost/reliability, AGI take)** | Frame as an AI/GenAI Systems post (Post Type 7). Ground it in real, hands-on use. Avoid hype language, name the actual mechanism and its tradeoff. |
 
-If the user provides a transcript in Czech, process it normally. Output the post in English unless explicitly asked for Czech.
+Output the post in English.
 
 ---
 
 ## Output Format
 
-Return the post text ready to copy-paste into LinkedIn. No markdown formatting around it. No code blocks.
+Return the post text ready to copy-paste into LinkedIn. No markdown formatting around it. No code blocks around the whole post (an actual code snippet inside the post is fine and expected).
 
 After the post, add a brief note:
 - Approximate character count
 - Post type used
-- Content pillar (1, 2, or 3)
+- Content pillar (1, 2, 3, or 4)
 - Funnel position (Awareness / Education / Conversion)
-- Whether the CTA ending was included or skipped (and why)
 - Suggested comment text (for additional links, context, or tags)
-- Whether a simple diagram/visual representing the core insight would help engagement (carousels and infographics get highest reach in 2026)
+- Whether a simple diagram/carousel/visual representing the core insight would help engagement
 - Save potential assessment (low / medium / high) and why
 
 ---
@@ -525,29 +500,27 @@ After the post, add a brief note:
 ## Pre-Publish Checklist
 
 Before finalizing, verify:
-- [ ] First 2 lines stop the scroll (specific, bold, or surprising. Not generic.)
+- [ ] First 2 lines stop the scroll (specific, a redirect of blame, or a recognizable scene. Not generic.)
 - [ ] First 2 lines would make YOU tap "see more" if you saw them while scrolling
-- [ ] Opening makes sense for the post type (category #number or strong hook)
 - [ ] Hook is directional and clearly signals the topic to the algorithm
-- [ ] Post fits within one of the 3 content pillars
-- [ ] First person, simple words throughout
-- [ ] Numbers or specific details included
+- [ ] Post fits within one of the 4 content pillars
+- [ ] Numbers or specific technical details included
+- [ ] A code snippet included if it makes the point faster than prose
 - [ ] Natural writing, not over-polished
 - [ ] Not rambling. Every sentence earns its place
-- [ ] Real experience/story, not theory
-- [ ] Clear who it helps
-- [ ] Ends on a high note
+- [ ] Real experience or a real, correct technical mechanism, not vague theory
+- [ ] Tradeoffs of any "fix" named honestly, not presented as a free win
+- [ ] Ends with a specific, answerable question
 - [ ] No AI-sounding phrases from the banned list
 - [ ] No words from the extended banned vocabulary (anti-ai-writing-guide.md Part 1)
 - [ ] No AI transition words (Furthermore, Moreover, Additionally, etc.)
 - [ ] No AI default structure (intro paragraph → balanced body → summary → optimistic close)
-- [ ] No dashes used as separators (periods or line breaks instead)
-- [ ] ▷ bullets used (or contextually appropriate alternative)
-- [ ] Emojis used functionally or not at all
-- [ ] Contains at least one save-worthy element (for education posts)
+- [ ] → arrows or numbered lists used, not markdown bullets
+- [ ] Hashtags only at the end, 4-6, relevant
+- [ ] Emojis used sparingly (0-1 typically) or not at all
+- [ ] Contains at least one save-worthy element (for education/checklist posts)
 - [ ] Funnel position is clear and intentional
-- [ ] One thought per line. Blank lines between every thought. No dense paragraphs.
-- [ ] Post reads well on a phone screen (scan it visually: if you see a block of 4+ lines without a break, fix it)
+- [ ] Post reads well on a phone screen (scan it visually: if you see a block of 4+ sentences without a break, fix it)
 - [ ] Read-aloud test passed (no stumbling over formal phrases)
 
 ---
@@ -555,31 +528,31 @@ Before finalizing, verify:
 ## Anti-Patterns
 
 **Too AI:**
-"In today's rapidly evolving tech landscape, engineering leaders face unprecedented challenges. Let me share three key insights that can transform your approach to team management."
+"In today's rapidly evolving tech landscape, backend engineers face unprecedented challenges. Let me share three key insights that can transform your approach to API performance."
 
 **Too generic:**
-"Good leaders listen. They also communicate clearly. And they empower their teams."
+"Good engineers write clean code. They also test thoroughly. And they communicate well with their team."
 
 **Too corporate:**
 "Leveraging cross-functional synergies to unlock value through strategic alignment of engineering resources."
 
 **Too polished:**
-"I've had the extraordinary privilege of working alongside some truly remarkable engineering leaders, and I'd love to share what I've learned from these incredible experiences."
+"I've had the extraordinary privilege of working alongside some truly remarkable engineers, and I'd love to share what I've learned from these incredible experiences."
 
 **Too balanced (AI hedging):**
-"While there are certainly benefits to remote work, it's important to consider the potential drawbacks as well. Many leaders find that a hybrid approach can offer the best of both worlds, though the optimal solution will vary depending on your team's specific needs and circumstances."
+"While there are certainly benefits to caching, it's important to consider the potential drawbacks as well. Many teams find that a hybrid approach can offer the best of both worlds, though the optimal solution will vary depending on your specific needs."
 
 **AI transition soup:**
-"Furthermore, it's worth noting that leadership requires adaptability. Moreover, the ability to foster a culture of accountability is essential. Additionally, investing in professional development demonstrates commitment to your team's growth."
+"Furthermore, it's worth noting that performance requires discipline. Moreover, the ability to foster clean architecture is essential. Additionally, investing in monitoring demonstrates commitment to reliability."
 
-**AI list syndrome (perfectly parallel, exactly 5 items):**
-"1. Prioritize clear communication. 2. Foster a culture of accountability. 3. Invest in professional development. 4. Embrace feedback loops. 5. Lead by example."
+**AI list syndrome (perfectly parallel, exactly 5 items, no real specifics):**
+"1. Write clean code. 2. Foster collaboration. 3. Invest in testing. 4. Embrace feedback loops. 5. Lead by example."
 
 **Off-pillar drift:**
-A post about cooking, travel tips, or general productivity hacks with no connection to engineering leadership. The algorithm will get confused about what Marian's profile is about.
+A post about cooking, travel, or general productivity hacks with no connection to backend engineering or AI/ML. The algorithm will get confused about what Kapil's profile is about.
 
 **Wall of text:**
-Any post where 4+ consecutive lines have no blank line between them. On mobile this looks like a paragraph from an essay. Nobody reads it. Break it up. One thought. One line. Breathe.
+Any post where 4+ consecutive sentences have no break. On mobile this looks like a paragraph from a textbook. Nobody reads it. Break it up.
 
 For a comprehensive breakdown of all AI writing patterns with side-by-side rewrites and fixes, see anti-ai-writing-guide.md.
 
@@ -587,96 +560,82 @@ For a comprehensive breakdown of all AI writing patterns with side-by-side rewri
 
 ## What GOOD Looks Like
 
-### Example 1: Story Post (Education/Middle Funnel)
+### Example 1: Production War Story (Education/Middle Funnel)
 
-#mentoring story #[X]
+Your EF Core query passes code review, works perfectly in development, and returns the right data.
 
-A first-time engineering manager asked me: "How do I give feedback to someone who's been here 10 years longer than me?"
+Then production traffic hits it.
 
-My answer surprised him.
+80ms becomes 6 seconds.
 
-You dont start with feedback. You start with questions.
+The query didn't necessarily change. The data volume, concurrency, and workload did.
 
-"How do you think the sprint went?"
+A few patterns I watch closely in production:
 
-"What would you change?"
+The loop that looks harmless
 
-83% of engineers report burnout. Most of them say their manager never asked how they're doing.
+foreach (var order in context.Orders.ToList())
+  Console.WriteLine(order.Customer.Name);
 
-Not once.
+One query loads the orders. Accessing the navigation can then trigger additional queries for each order.
 
-The senior engineer doesn't need your technical opinion.
+10 rows look fine.
 
-He needs to know you actually care about his work.
+10,000 rows are a production incident.
 
-Feedback isn't about seniority. Its about trust.
+Check the generated SQL and query count before assuming the query is efficient.
 
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
+Because production performance isn't about whether the query is correct.
 
-### Example 2: Framework Post (Education/Middle Funnel, High Save)
+It's about whether the query still behaves well when your data and traffic become real.
 
-#mentoring story #[X]
+What single performance improvement taught you the most with regard to a production system?
 
-Every new engineering manager makes the same mistake with 1:1s.
+#dotnet #efcore #csharp #backenddevelopment #softwareengineering
 
-They prepare an agenda. They run through status updates. They ask "anything else?" and wrap up in 20 minutes.
+### Example 2: Myth-Bust / Redirect-Blame Post (Education/Middle Funnel)
 
-That's a project meeting. Not a 1:1.
+The user left. Your server didn't.
 
-I use what I call the 3-Question Method with my mentees:
+A user opens your API. Their browser closes, the tab gets refreshed, or the connection just drops.
 
-▷ "What's frustrating you right now?"
-▷ "What do you need from me that you're not getting?"
-▷ "What would make next week better than this one?"
+They're gone.
 
-Three questions. No status updates. No task reviews.
+But your backend? Still working.
 
-52% of my mentees are first-time managers.
+You're paying your server to finish a job nobody ordered anymore.
 
-The ones who switch to this approach? Their teams start actually talking to them within 2 weeks.
+Here's the fix most teams underuse: CancellationToken.
 
-Save this for your next 1:1.
+That token needs to travel the whole way down: Controller → Service → Repository → Database.
+
+Accepting it in the controller isn't enough. If one layer drops it, cancellation stops propagating right there.
+
+Cancellation isn't an optimization. It's resource management.
+
+Do you pass CancellationToken through your entire request pipeline, or does it usually stop at the controller?
+
+#dotnet #aspnetcore #csharp #backenddevelopment #softwareengineering
 
 ---
 
-## Posting Schedule Recommendations (3x per week)
+## Posting Schedule Recommendations
 
-Best days: Tuesday, Wednesday, Thursday.
-Best time: 10 AM CET (mid-morning, before engineering leaders go into deep work).
-
-▷ Tuesday 10 AM CET
-▷ Wednesday 10 AM CET
-▷ Thursday 10 AM CET
+Kapil currently posts roughly weekly. Best pattern based on real posting history: spaced 1-3 weeks apart, technical breakdown or numbered-list posts perform best (highest likes/comments in real examples).
 
 Key rules:
-▷ Space posts 24+ hours apart. LinkedIn promotes only one post per account per 24h cycle.
+▷ Space posts at least a few days apart. LinkedIn promotes only one post per account per 24h cycle at most.
 ▷ First 60 minutes matter most. The algorithm prioritizes early engagement.
-▷ Avoid weekends. 45% less engagement. Not worth it for this audience.
-▷ Audience is Central European engineering leaders. 10 AM CET hits their mid-morning scroll.
-
-## Weekly Content Mix Recommendation
-
-For a 3-post week, aim for this balance:
-
-▷ **Post 1 (Tuesday):** Education/Framework post. Middle funnel. Build for saves.
-▷ **Post 2 (Wednesday):** Story post or Contrarian take. Mix of awareness and education.
-▷ **Post 3 (Thursday):** Varies. Rotate between community recognition, personal vulnerability, conversion (testimonial/event promo), or another education post.
-
-Over a month (12 posts), rough target:
-- 6-7 education/framework posts (middle funnel, save-driven)
-- 2-3 awareness posts (bold takes, personal stories)
-- 1-2 conversion posts (testimonials, event promos, service highlights)
-- 1 wildcard (newsjacking, community post, or off-pillar personal post)
+▷ Audience is backend/.NET engineers and hiring managers. Mid-morning or early-evening IST posting times likely hit their scroll window; adjust based on real engagement data once available.
 
 ## Carousel/Infographic Companion Strategy
 
-Carousels and infographics are the highest performing format on LinkedIn in 2026. When writing a post, consider whether the core insight would work as a visual.
+Carousels and infographics are the highest performing format on LinkedIn in 2026. When writing a post, consider whether the core insight would work as a visual. Kapil's real posts already do this (e.g., "I've put all 20 in the visual below").
 
 Flag this in the output note when:
 - The post contains a step-by-step process (→ carousel)
 - The post references data or comparisons (→ infographic)
-- The post describes a framework with named steps (→ branded framework visual)
+- The post is a numbered checklist or list of interview questions (→ carousel, high save potential)
 - The post has a list of 5+ items (→ carousel or infographic)
 
-Marian can create the visual separately. The post text should stand alone, but the suggestion helps with content planning.
+Kapil can create the visual separately. The post text should stand alone, but the suggestion helps with content planning.

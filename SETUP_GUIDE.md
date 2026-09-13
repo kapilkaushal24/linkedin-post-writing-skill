@@ -197,4 +197,4 @@ After the initial 3 hours, you're looking at roughly 45 minutes per week for 3 p
 
 ## Questions?
 
-Open an issue on this repo or connect with me on [LinkedIn](https://www.linkedin.com/in/mariankamenistak/).
+Open an issue on this repo or connect on [LinkedIn](https://www.linkedin.com/in/kapilkaushal24/).

@@ -1,161 +1,229 @@
 # Real LinkedIn Post Examples
 
-These are actual posts written for Marian. Use them to calibrate voice, structure, and tone.
+These are actual posts Kapil published. Use them to calibrate voice, structure, and tone.
+
+**Note:** All 4 examples below are .NET/backend posts (Pillars 1-2). Kapil has also published AI/ML posts (Pillar 3) — "Context Engineering," "AI Reliability Engineering," and "AI Cost Engineering — The Bill Arrives. Are You Ready?" — but only the titles are known so far. When writing AI/ML posts, apply the same voice patterns documented below (myth-bust hooks, honest tradeoffs, code/specifics over hype, a closing question) until real AI post text is pasted in here for tighter calibration.
 
 ---
 
-## Example 1: Business Story (Revenue Transparency)
+## Example 1: Production War Story (EF Core Performance)
 
-Business story #47
+Your EF Core query passes code review, works perfectly in development, and returns the right data.
 
-I was $75k in debt 3 years ago.
+Then production traffic hits it.
 
-In 2023, I left a $350k job offer. Cashed out stock options to survive. Made every rookie mistake.
+80ms becomes 6 seconds.
 
-2024: Broke even. Reinvested everything.
+The query didn't necessarily change. The data volume, concurrency, and workload did.
 
-2025: $537k revenue across 9 business streams.
+That's where many EF Core performance problems hide.
 
-The harsh reality nobody talks about: Starting a business is fun. Sustaining it is exhausting.
+A few patterns I watch closely in production:
 
-Here's what the post breaks down:
-▷ Exact revenue numbers for each stream
-▷ Which bets worked (and which didn't)
-▷ Why diversification saved me in a frozen market
-▷ The 2 skills I'm fixing in 2026
+The loop that looks harmless
 
-If you're building a side business, thinking about going independent, or curious how a coaching venture actually works, this is for you.
+foreach (var order in context.Orders.ToList())
+  Console.WriteLine(order.Customer.Name);
 
-Raw financials. Real lessons. No fluff.
+One query loads the orders. Accessing the navigation can then trigger additional queries for each order.
 
-Link in comments.
+10 rows look fine.
 
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
+10,000 rows are a production incident.
 
-**Type:** Story Post | **Pillar:** 3 (Building a Leadership Business) | **Funnel:** Education | **~1,089 chars**
+Check the generated SQL and query count before assuming the query is efficient.
 
----
+Loading the entire entity
 
-## Example 2: Mentoring Story (Live Data Transparency)
+You need Id, Total, and Status. But the query materializes the entire entity and potentially its relationships.
 
-Mentoring story #149
+Projection keeps the database result focused:
 
-I spent 3 hours building something most coaches never show.
+.Select(x => new { x.Id, x.Total, x.Status })
 
-Live mentoring data. On my website. For everyone to see.
+Less data transferred. Less materialization. Less memory.
 
-Why? Because every client asks the same question: "How much experience do you actually have?"
+Tracking everything
 
-Now they can check themselves.
+EF Core tracks entities by default so it can detect changes. That's useful when you're going to update them.
 
-▷ 295 engineering leaders mentored since 2019
-▷ 3,354 coaching sessions to this day
-▷ 27 sessions per month on average in the last 12 months
+For read-only workloads returning thousands of entities, that tracking adds overhead.
 
-From ICs stepping into leadership to CTOs stabilizing their performance. From first-time managers to leaders who doubled their market value.
+AsNoTracking() can help, but don't add it everywhere blindly. Understand the workload first.
 
-No "only 1 spot left" urgency theater.
+Multiple collection Includes
 
-Just real numbers. Updated live.
+10 orders × 5 items × 3 payments = 150 result rows. Sometimes split queries are the better trade-off.
 
-Check it on my website.
+Filtering after ToList()
 
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
+Now the database already returned every row. Push filtering, projection, and aggregation to SQL whenever possible.
 
-**Type:** Story Post | **Pillar:** 3 (Building a Leadership Business) | **Funnel:** Education/Conversion | **~850 chars**
+Pagination that ignores scale
 
----
+Deep offsets can become increasingly expensive as the dataset grows. For large ordered datasets, keyset pagination can be a better approach.
 
-## Example 3: Mentoring Story (Elevator Pitch Coaching)
+Don't optimize the C# first.
 
-#mentoring story #178
+Understand the database work your C# is creating.
 
-20 year generation gap between the mentor and the mentee.
+Because production performance isn't about whether the query is correct.
 
-Filip is hungry to find the right match for his next role.
+It's about whether the query still behaves well when your data and traffic become real.
 
-We started with his elevator pitch. Why? Because if you can't keep me curious about you in one minute, I'm not listening to you for the remaining 59 minutes of the interview.
+#dotnet #efcore #csharp #backenddevelopment #softwareengineering
 
-Filip's pitch was solid. Co-founded a gaming platform during university. Led the dev team. Acquired in 18 months. Scaled from 3 to 8 engineers. Inherited 100k daily users, 30 microservices, almost no docs. Made it work.
-
-Great story. But I stopped him.
-
-Three things I told him to fix:
-
-▷ "I'm a builder" is a dead opener. Every second founder says this. Lead with your strongest outcome instead.
-▷ "I speak both languages, tech and business." Most overused line in engineering interviews. Don't state it. Prove it with one example.
-▷ 90% of his pitch was looking back. Zero about where he's going. Hiring managers need to see the fit, not just the resume.
-
-The brutal truth about elevator pitches? Most people describe what they did. Few explain what they solve.
-
-Filip is 20 years younger than me. His story is sharper than most senior leaders I coach. He just needed to stop selling the past and start selling the future.
-
-👉 Can you pitch yourself in 60 seconds without buzzwords?
-
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
-
-**Type:** Story Post | **Pillar:** 1 (Leadership Transitions) | **Funnel:** Education | **~1,250 chars**
+**Type:** Production War Story | **Pillar:** 1 (.NET/EF Core Performance) | **Funnel:** Education | **~1,750 chars** | **9 likes**
 
 ---
 
-## Example 4: Event/Promo Post (Conference CFP)
+## Example 2: Numbered List / Myth-Bust Post (ASP.NET Core Performance)
 
-Business story #48
+The Azure environment, Kubernetes, and your SQL Server tier are not the causes of your ASP.NET Core API being slow.
 
-400 people will watch you on stage. Your story could change their career.
+The slow-down is due to five habits which gradually accumulate until they become apparent when production traffic is involved.
 
-The ELC Conference 2026 is filling up fast. Over 80% of speaking slots already taken.
+I've debugged this exact story more times than I can count: a simple endpoint takes 200 milliseconds locally, then slows to 3-4 seconds in production. The infrastructure hasn't changed. The code was simply never designed for handling large volumes.
 
-But here's the thing most speakers don't realize.
+Here's what's usually happening under the hood:
 
-You don't need a polished TED talk. You need a real story.
+1. No caching on data that barely changes
+Hitting the database every request for config values or lookup tables that update once a day. Fixable in an afternoon with IMemoryCache or Redis.
 
-A failure that taught you something. A decision that scared you. A lesson your team learned the hard way.
+2. Sync calls hidden inside "async" methods
+Call .Result or .Wait() three layers down and you block a thread pool thread. Under load, you're not scaling, you're queuing.
 
-Three ways to contribute:
-▷ Main stage talk in front of 400 engineering leaders
-▷ Run a hands-on workshop
-▷ Offer your mentoring services to attendees
+3. EF Core queries built for correctness, not speed
+Tracked queries and full entities loaded when three columns would do.
 
-I review every submission personally. Happy to help shape your story into something legendary.
+4. Returning everything instead of paging
+GetAllOrders() returning 40,000 rows because pagination "can wait." It can't.
 
-Check topics and submit at the link in comments.
+5. N+1 queries hidden inside a foreach loop
+One query for orders, then one more per order for line items. 50 orders becomes 51 round trips.
 
-Follow for engineering leadership insights.
-Join ELC community: https://www.engineeringleaders.io/
+If there's just one issue to fix, it's the N+1 problem. It's the easiest to miss in a code review and usually the biggest latency spike.
 
-**Type:** Event/Promo Post | **Pillar:** 3 (Building a Leadership Business) | **Funnel:** Conversion | **~820 chars**
+None of these fixes are free. Caching risks stale data. Pagination changes your API contract. Query tuning can cost readability. Every fix is a trade-off, not a magic bullet.
+
+A fast API isn't the result of one big optimization. It's the absence of a dozen small mistakes nobody caught in review.
+
+What single performance improvement taught you the most with regard to a production system?
+
+#dotnet #aspnetcore #efcore #backenddevelopment #softwareengineering
+
+**Type:** Numbered List / Myth-Bust | **Pillar:** 1 (.NET Performance) | **Funnel:** Education | **~1,650 chars** | **23 likes, 10 comments** (real engagement: sparked a debate in comments about EF vs Dapper)
+
+---
+
+## Example 3: Numbered Checklist Post (Interview Prep)
+
+I've given 80+ .NET interviews over the last 3 years.
+
+And if I had to prepare for another one tomorrow, I wouldn't start with a list of 300 questions.
+
+I'd start with 20.
+
+Because after enough interviews, you start noticing a pattern.
+
+Interviewers aren't just checking whether you remember a definition. They keep digging into:
+
+→ Why does it work this way?
+→ What happens under the hood?
+→ What are the trade-offs?
+→ What breaks in production?
+→ Have you actually used it?
+
+You answer "It's just async/await." Then comes "What happens when you await?" "Thread or Task?" "I/O-bound vs CPU-bound?" "What about cancellation?"
+
+One concept suddenly becomes 5-10 questions.
+
+Don't memorize 300 answers. Build depth around the concepts that keep coming back.
+
+So I put together the 20 .NET interview questions I'd prepare first, covering C#, ASP.NET Core, SQL & EF Core, Architecture, Distributed Systems, and Production & Problem Solving.
+
+👇 I've put all 20 in the visual below.
+
+Pick one question. Try answering it without Google. Then ask yourself: "What follow-up questions could the interviewer ask me?"
+
+That's where the real preparation starts.
+
+Which .NET topic has given you the toughest interview follow-up?
+
+#dotnet #csharp #aspnetcore #softwareengineering #interviewprep
+
+**Type:** Numbered Checklist (with carousel companion) | **Pillar:** 4 (Career/Interview Prep) | **Funnel:** Education | **~1,150 chars** | **335 likes, 21 comments** — Kapil's best-performing post. Multiple commenters asked for the PDF. Highest save/share potential of all examples.
+
+---
+
+## Example 4: Myth-Bust Post (CancellationToken)
+
+The user left. Your server didn't.
+
+A user opens your API. Their browser closes, the tab gets refreshed, or the connection just drops.
+
+They're gone.
+
+But your backend? Still working:
+→ Querying the database
+→ Calling an external API
+→ Processing data
+→ Building a response
+
+For someone who isn't there anymore.
+
+This isn't just wasted CPU cycles. At scale, abandoned requests quietly eat into database connections, thread-pool capacity, memory, and external API rate limits.
+
+You're paying your server to finish a job nobody ordered anymore.
+
+Here's the fix most teams underuse: CancellationToken. It's a simple signal that says: "This work isn't needed anymore. Stop if you can."
+
+public async Task<IActionResult> GetCustomer(
+  CancellationToken cancellationToken)
+{
+  var customer =
+    await service.GetCustomerAsync(cancellationToken);
+
+  return Ok(customer);
+}
+
+That token needs to travel the whole way down: Controller → Service → Repository → Database / HTTP call.
+
+Accepting it in the controller isn't enough. If one layer drops it, cancellation stops propagating right there, and everything downstream keeps running like nothing happened.
+
+Cancellation isn't an optimization. It's resource management.
+
+Do you pass CancellationToken through your entire request pipeline, or does it usually stop at the controller?
+
+#dotnet #aspnetcore #csharp #backenddevelopment #softwareengineering
+
+**Type:** Myth-Bust / Redirect-Blame | **Pillar:** 1 (.NET Performance) | **Funnel:** Education | **~1,150 chars** | **52 likes, 12 comments** — sparked a real technical debate in comments (one commenter pushed back with "why is a cancellation token needed?", others jumped in to answer).
 
 ---
 
 ## Voice Patterns to Notice
 
-1. **Opening hooks are specific, not generic.** "$75k in debt" not "I struggled financially." "400 people will watch you" not "Speaking opportunity available."
+1. **Hooks redirect blame or set a scene, never ask a question.** "The Azure environment... are not the causes" not "Is your API slow?" "The user left. Your server didn't." not "Do you know what happens when a user disconnects?"
 
-2. **Numbers everywhere.** Every post has at least 2-3 concrete numbers. Sessions, revenue, team sizes, timeframes.
+2. **Numbers everywhere, always real.** 80ms → 6 seconds. 80+ interviews. 50 orders, 51 round trips. Never vague ("significantly slower").
 
-3. **▷ bullets for lists.** Never dashes, never asterisks, never numbered lists.
+3. **→ arrows for chains and short lists. Numbered lists (1. 2. 3.) for ranked items.** Never dashes or asterisks as bullets.
 
-4. **Confrontational stance.** "Dead opener", "urgency theater", "most overused line." He names the problem directly.
+4. **Code snippets appear directly in the post** when they explain faster than prose. Short, real, minimal.
 
-5. **Endings vary.** Question to audience, punchy one-liner, or CTA. Never deflating.
+5. **Every "fix" gets its trade-off named honestly.** "None of these fixes are free." This is a signature move, not hedging, it's confidence: naming the cost without being asked.
 
-6. **Slightly imperfect grammar is left alone.** "dont" without apostrophe, slightly rough transitions. Not planted, just not polished out.
+6. **Endings are always a specific question about the reader's own experience.** Never a generic CTA, never "thoughts?"
 
-7. **No dashes as separators.** Periods and line breaks do the work.
+7. **Hashtags only at the very end, 4-6 of them, always relevant** (#dotnet, #aspnetcore, #efcore, #csharp, #backenddevelopment, #softwareengineering, #interviewprep).
 
-8. **No AI transitions.** No "Furthermore," "Moreover," "Additionally." New paragraphs do the work. Or a single word: "But." "Why?" "Zero."
+8. **Minimal emoji use.** One pointer emoji (👇) at most, only when referencing an attached visual.
 
-9. **Unbalanced takes.** He picks a side. Doesn't "on the other hand" anything. If a post feels balanced, it's not his voice.
+9. **Comfortable with an em dash for a genuine aside**, unlike a "no dashes ever" rule, this is one place Kapil's real voice differs from generic anti-AI advice. Used sparingly.
 
-10. **No throat-clearing.** Posts start mid-action or with a specific detail. Never "In today's..." or "As someone who..." or "Let me share..."
+10. **No throat-clearing.** Posts start mid-scenario or with a direct, confident claim. Never "In today's..." or "As someone who...".
 
-11. **Messy details make it real.** "almost no docs" in Example 3 is a specific, imperfect detail that doesn't serve the lesson perfectly. That's what makes it human.
-
-12. **Scenes, not imagination.** He describes what happened, not "Imagine if..." or "Picture this..." Real situations, not hypotheticals.
+11. **Confident teaching voice, not confrontational.** He states the mechanism plainly and lets the technical clarity do the work, rather than being combative or coach-like.
 
 For the full framework on eliminating AI patterns from writing, see anti-ai-writing-guide.md.
 
@@ -163,10 +231,8 @@ For the full framework on eliminating AI patterns from writing, see anti-ai-writ
 
 ## ADD YOUR OWN EXAMPLES BELOW
 
-Paste your best-performing real LinkedIn posts here. Include the engagement numbers if you have them (impressions, likes, comments, saves). The more examples, the better Claude calibrates to your voice.
+Paste new best-performing posts here as they get published, with engagement numbers if available. The more examples, the sharper the voice calibration. Paste the full text of "Context Engineering," "AI Reliability Engineering," and "AI Cost Engineering" here when available — they'll sharpen the Pillar 3 (AI/ML) voice calibration significantly.
 
-### Example 5: [Paste here]
+### Example 5: [Paste an AI/ML post here, e.g. "Context Engineering"]
 
 ### Example 6: [Paste here]
-
-### Example 7: [Paste here]

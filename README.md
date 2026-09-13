@@ -1,12 +1,12 @@
 # LinkedIn Post Writing Skill for Claude AI
 
-A complete system for writing LinkedIn posts that sound like a real person, not AI. Built for Claude Projects but adaptable to any AI writing workflow.
+A complete system for writing LinkedIn posts that sound like a real person, not AI. Adapted from an open-source template, customized for my own voice.
 
 ## What This Is
 
-4 files that turn Claude (or any LLM) into a LinkedIn ghostwriter that actually sounds human. The system includes voice calibration, anti-AI detection, content strategy, algorithm optimization, and a weekly publishing workflow.
+6 files that turn Claude (or any LLM) into a LinkedIn ghostwriter that actually sounds like me, across two formats: short feed posts and long-form newsletter issues. The system includes voice calibration, anti-AI detection, content strategy, algorithm optimization, and a weekly publishing workflow.
 
-I use this system to write 3 LinkedIn posts per week for my engineering leadership coaching practice. Every post goes through an AI detection checklist before publishing.
+I use this system to write LinkedIn posts and newsletter issues about .NET, ASP.NET Core, Azure/cloud-native backend engineering, and AI/ML/GenAI (RAG, agents, AI cost and reliability engineering). I also publish "The .NET Horizon," a weekly LinkedIn Newsletter with long-form deep dives on AI systems engineering. Every post and issue goes through an AI detection checklist before publishing.
 
 ## The Files
 
@@ -14,87 +14,35 @@ I use this system to write 3 LinkedIn posts per week for my engineering leadersh
 
 | File | What It Does |
 |---|---|
-| `files/LinkedIn_SKILL.md` | Core writing guidelines. Voice profile, banned words (40+), post types, 2026 algorithm strategy, pre-publish checklist. This is the main instruction file. |
-| `files/anti-ai-writing-guide.md` | How to NOT sound like AI. 8-part guide covering vocabulary, structure, tone, formatting, openings/closings, and content patterns. Includes side-by-side rewrites. |
-| `files/LinkedIn_POST_EXAMPLES.md` | Real post examples for voice calibration. Annotated with what makes each one work. |
-| `files/linkedin-weekly-system.md` | Weekly content workflow. Sunday planning, Tue/Wed/Thu writing sessions, Notion backlog integration, content mix rules. |
+| `files/LinkedIn_SKILL.md` | Core writing guidelines for short feed **posts**. Voice profile, banned words (40+), post types, 2026 algorithm strategy, pre-publish checklist. |
+| `files/LinkedIn_NEWSLETTER_SKILL.md` | Writing guidelines for long-form **newsletter issues** ("The .NET Horizon" on LinkedIn). Different voice, chaptered/essay structure, checklist + takeaways format. Use for "write a newsletter issue" / "write an article", not for short posts. |
+| `files/anti-ai-writing-guide.md` | How to NOT sound like AI. 8-part guide covering vocabulary, structure, tone, formatting, openings/closings, and content patterns. Includes side-by-side rewrites. Applies to both posts and newsletter issues. |
+| `files/LinkedIn_POST_EXAMPLES.md` | Real short-post examples for voice calibration. Annotated with what makes each one work. |
+| `files/LinkedIn_NEWSLETTER_EXAMPLES.md` | Real newsletter issue excerpts for voice calibration (distinct, more formal voice than short posts). |
+| `files/linkedin-weekly-system.md` | Weekly content workflow. Planning and writing sessions, content backlog, content mix rules. |
 
 ### Setup Files (for configuring Claude Projects)
 
 | File | What It Does |
 |---|---|
-| `SETUP_GUIDE.md` | **Start here.** Step-by-step guide to build your own LinkedIn writing skill from scratch. Written for beginners. |
+| `SETUP_GUIDE.md` | Step-by-step guide to build your own LinkedIn writing skill from scratch. Written for beginners. |
 | `LinkedIn PROJECT_INSTRUCTIONS to paste.md` | Project instructions to paste into your Claude Project's system prompt. Defines triggers, formatting rules, and behavior. |
-| `LinkedIn MEMORY_SEEDS to paste.md` | Suggested memory entries for tracking story numbers, high-performing formats, seasonal context, and voice corrections. |
+| `LinkedIn MEMORY_SEEDS to paste.md` | Suggested memory entries for tracking story numbers, high-performing formats, and voice corrections. |
 
 ## How to Use It
 
 ### With Claude Projects
 1. Create a new Claude Project
-2. Upload the 4 files from `files/` to the project's knowledge base
+2. Upload the files from `files/` to the project's knowledge base (both the post skill and newsletter skill files)
 3. Copy the contents of `LinkedIn PROJECT_INSTRUCTIONS to paste.md` into the project's custom instructions
 4. Optionally seed your memory with entries from `LinkedIn MEMORY_SEEDS to paste.md`
 5. Start writing posts
 
+### With Claude Code (this folder)
+Just ask Claude to write a post about a topic. It reads the skill files directly from this folder, no project setup needed.
+
 ### With Other LLMs
 The files are plain markdown. You can paste them into any LLM's system prompt or context window. Start with `LinkedIn_SKILL.md` and `anti-ai-writing-guide.md` as the minimum setup.
-
-### Adapting to Your Voice
-
-> **⚠️ Important:** These files are calibrated to MY voice (direct, confrontational, coaching-oriented). If you use them as-is, your posts will sound like me, not you. You MUST customize the voice profile before publishing anything.
-
-The `anti-ai-writing-guide.md` is universal. Keep it. The banned words, structure rules, and detection checklist work for everyone.
-
-Everything else needs to become yours. Here's how:
-
-**Quick start: Use this prompt to build your own voice profile**
-
-Paste this into Claude (or any LLM) along with 5-10 of your best LinkedIn posts:
-
-```
-I'm building an AI writing skill for LinkedIn. Below are my real posts that performed well.
-
-Analyze them and create a voice profile for me. Include:
-
-1. Tone description (how do I sound? formal/casual, serious/humorous, etc.)
-2. Sentence patterns (short fragments? long narrative? mixed?)
-3. Words and phrases I use often
-4. Words and phrases I NEVER use (that would sound wrong coming from me)
-5. How I open posts (what patterns do I repeat?)
-6. How I close posts
-7. Formatting habits (bullets, emojis, white space, line length)
-8. My typical post structure
-9. Topics and themes I care about (these become my content pillars)
-10. What makes my voice different from generic LinkedIn advice
-
-Be specific. Don't say "casual tone." Say exactly what makes it casual.
-
-[PASTE YOUR 5-10 BEST POSTS HERE]
-```
-
-Take the output and use it to replace the voice profile section in `LinkedIn_SKILL.md`.
-
-**Then customize these sections:**
-
-1. **Voice Profile** in `LinkedIn_SKILL.md` → replace with your own tone, phrases, and banned words
-2. **Post Examples** in `LinkedIn_POST_EXAMPLES.md` → replace with your actual best-performing posts
-3. **Content Pillars** → swap my 3 pillars for your expertise areas
-4. **Proof Points** → replace my numbers and credentials with yours
-5. **Project Instructions** → adjust triggers and behavior to match your workflow
-
-**After your first 5 posts, refine further.** Tell Claude:
-
-```
-Here are 5 posts you wrote for me. I'm marking what felt right and what felt off.
-
-[Paste posts with your notes like: "this sentence sounds like me", "I would never say this", "too formal here", "good energy in this paragraph"]
-
-Update my voice profile based on this feedback.
-```
-
-Repeat every few weeks. The skill gets sharper over time.
-
-For the full step-by-step walkthrough, see `SETUP_GUIDE.md`.
 
 ## What Makes This Different
 
@@ -119,16 +67,15 @@ Full breakdown in `anti-ai-writing-guide.md`.
 
 ## About
 
-I'm [Marian Kamenistak](https://www.kamenistak.com), an Engineering Leadership Coach based in Prague. I run the [Engineering Leaders Community](https://www.engineeringleaders.io/) (1,700+ members), mentor 300+ engineering leaders per year, and organize the annual ELC Conference.
+I'm [Kapil Kaushal](https://www.linkedin.com/in/kapilkaushal24/), a .NET Cloud AI Engineer based in Sahibzada Ajit Singh Nagar, Punjab, India. I build backend systems on Azure using ASP.NET Core, focused on microservices, containerization (Docker/AKS), and API/database performance. I also work with AI-assisted engineering (Claude, agent skills, prompt engineering) and write about applied AI/ML: RAG, GenAI systems, AI agents, and the AGI conversation. I post about .NET, ASP.NET Core, Azure/cloud-native backend engineering, and AI/ML/GenAI.
 
-These files are the actual system I use to write my LinkedIn content. Open-sourced because I think more people should know how to make AI-assisted writing sound human.
+These files are the actual system I use to write my LinkedIn content.
 
 ## License
 
-MIT. Use it, adapt it, share it. If you build something cool with it, I'd love to hear about it.
+MIT. Use it, adapt it, share it.
 
 ## Connect
 
-- LinkedIn: [mariankamenistak](https://www.linkedin.com/in/mariankamenistak/)
-- Website: [kamenistak.com](https://www.kamenistak.com)
-- Community: [engineeringleaders.io](https://www.engineeringleaders.io/)
+- LinkedIn: [kapilkaushal24](https://www.linkedin.com/in/kapilkaushal24/)
+- Personal site: [kapilkaushal.netlify.app](https://kapilkaushal.netlify.app/)
